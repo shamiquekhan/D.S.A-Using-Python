@@ -52,6 +52,16 @@ class LinkedList:
                result += temp.data
            temp = temp.next
        return result
+    def reverse(self):
+        prev_node = None
+        curr_node = self.head
+        while curr_node is not None:
+            next_node = curr_node.next
+            curr_node.next = prev_node
+            prev_node = curr_node
+            curr_node = next_node
+        self.head = prev_node
+        return self.head
 
 
 # Example usage
@@ -70,3 +80,9 @@ ll.display()
 # Sum of odd numbers
 odd_sum = ll.sum_of_odds_recursive()
 print("Sum of all odd numbers:", odd_sum)
+
+# Reverse the list
+ll.reverse()
+print("Reversed List:")
+ll.display()
+
